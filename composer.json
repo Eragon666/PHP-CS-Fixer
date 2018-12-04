@@ -1,5 +1,5 @@
 {
-    "name": "friendsofphp/php-cs-fixer",
+    "name": "Eragon666/php-cs-fixer",
     "type": "application",
     "description": "A tool to automatically fix PHP code style",
     "license": "MIT",
@@ -11,6 +11,10 @@
         {
             "name": "Dariusz Rumiński",
             "email": "dariusz.ruminski@gmail.com"
+        },
+        {
+            "name": "Matthijs Thoolen",
+            "email": "matthijsthoolen@hotmail.com"
         }
     ],
     "require": {

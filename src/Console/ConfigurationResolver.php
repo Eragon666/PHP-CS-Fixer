@@ -541,6 +541,11 @@ final class ConfigurationResolver
         return $this->options['stop-on-violation'];
     }
 
+    public function shouldReturnExitCodeOnChange()
+    {
+        return $this->options['exit-code-on-change'];
+    }
+
     /**
      * @return bool
      */

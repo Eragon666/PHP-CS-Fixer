@@ -111,6 +111,7 @@ final class FixCommand extends Command
                     new InputOption('format', '', InputOption::VALUE_REQUIRED, 'To output results in other formats.'),
                     new InputOption('stop-on-violation', '', InputOption::VALUE_NONE, 'Stop execution on first violation.'),
                     new InputOption('show-progress', '', InputOption::VALUE_REQUIRED, 'Type of progress indicator (none, run-in, estimating, estimating-max or dots).'),
+                    new InputOption('exit-code-on-change', '', InputOption::VALUE_REQUIRED, 'Return an exit code when files are fixed.'),
                 ]
             )
             ->setDescription('Fixes a directory or a file.')
@@ -144,6 +145,7 @@ final class FixCommand extends Command
                 'stop-on-violation' => $input->getOption('stop-on-violation'),
                 'verbosity' => $verbosity,
                 'show-progress' => $input->getOption('show-progress'),
+                'exit-code-on-change' => $input->getOption('exit-code-on-change')
             ],
             getcwd(),
             $this->toolInfo
@@ -264,7 +266,8 @@ final class FixCommand extends Command
             $resolver->isDryRun(),
             \count($changed) > 0,
             \count($invalidErrors) > 0,
-            \count($exceptionErrors) > 0
+            \count($exceptionErrors) > 0,
+            $resolver->shouldReturnExitCodeOnChange()
         );
     }
 }

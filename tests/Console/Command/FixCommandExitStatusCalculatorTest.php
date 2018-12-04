@@ -31,16 +31,17 @@ final class FixCommandExitStatusCalculatorTest extends TestCase
      * @param bool $hasChangedFiles
      * @param bool $hasInvalidErrors
      * @param bool $hasExceptionErrors
+     * @param bool $exitCodeOnChange
      *
      * @dataProvider provideCalculateCases
      */
-    public function testCalculate($expected, $isDryRun, $hasChangedFiles, $hasInvalidErrors, $hasExceptionErrors)
+    public function testCalculate($expected, $isDryRun, $hasChangedFiles, $hasInvalidErrors, $hasExceptionErrors, $exitCodeOnChange)
     {
         $calculator = new FixCommandExitStatusCalculator();
 
         $this->assertSame(
             $expected,
-            $calculator->calculate($isDryRun, $hasChangedFiles, $hasInvalidErrors, $hasExceptionErrors)
+            $calculator->calculate($isDryRun, $hasChangedFiles, $hasInvalidErrors, $hasExceptionErrors, $exitCodeOnChange)
         );
     }
 
